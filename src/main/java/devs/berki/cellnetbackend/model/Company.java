@@ -3,6 +3,7 @@ package devs.berki.cellnetbackend.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NonNull;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class Company {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "company_name")
+	@Column(name = "company_name", nullable = false)
 	private String companyName;
 
 	@OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
